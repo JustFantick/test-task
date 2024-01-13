@@ -1,0 +1,14 @@
+@function adaptValue($pcSize, $mbSize) {
+	$addSize: $pcSize - $mbSize;
+	$maxWidth: 1440 - 320;
+	@return calc(#{$mbSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+$colorBgPrimary: rgb(250, 251, 255);
+$colorBgSecondary: rgb(255, 255, 255);
+
+$colorTextPrimary: rgb(0, 0, 0);
+$colorTextSecondary: rgb(181, 183, 192);
+$colorTextHighlighted: rgb(22, 192, 152);
+
+$colorNavItemHighlighted: rgb(89, 50, 234);
