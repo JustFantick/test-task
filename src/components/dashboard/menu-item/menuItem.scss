@@ -1,0 +1,37 @@
+@import '../../../global.scss';
+
+.menu-item {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 11px 8px 11px 11px;
+	border-radius: 8px;
+
+	&__icon::before,
+	&__title,
+	&__arrow {
+		color: inherit;
+	}
+
+	&__title {
+		flex: 1 1 auto;
+
+		text-transform: capitalize;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: normal;
+		letter-spacing: -0.14px;
+	}
+
+	transition: all 0.15s ease-in-out;
+
+	&[data-isactive=true] {
+		background-color: $colorNavItemHighlighted;
+		color: white;
+	}
+
+	&[data-isactive=false] {
+		background-color: transparent;
+		color: rgb(145, 151, 179);
+	}
+}
