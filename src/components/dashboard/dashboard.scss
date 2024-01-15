@@ -1,9 +1,18 @@
 @import '../../global.scss';
 
 .dashboard {
+	@media (min-width: 1025px) {
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+
+	@media (min-width: 350px) {
+		width: 306px;
+	}
+
 	min-height: 100vh;
 	min-height: 100dvh;
-	max-width: 306px;
 	background-color: $colorBgSecondary;
 
 	display: flex;
@@ -22,14 +31,11 @@
 	&__head {
 		display: flex;
 		align-items: center;
+		gap: 8px;
 
 		h2 {
-			margin-left: 8px;
-			margin-right: 4px;
-
 			font-size: 26px;
 			font-weight: 600;
-			line-height: normal;
 			letter-spacing: 0.26px;
 
 			span {
@@ -52,7 +58,7 @@
 		li {
 			list-style-type: none;
 			padding: 0;
-			margin: 9px;
+			margin: 9px 0;
 
 			&:last-child {
 				margin-bottom: 0;

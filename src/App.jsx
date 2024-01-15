@@ -3,7 +3,7 @@ import './App.scss'
 import Dashboard from './components/dashboard/Dashboard'
 import Product from './components/product/Product'
 import MenuBurger from './components/menu-burger/MenuBurger';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useScrollLock } from './hooks/useScrollLock';
 
 function App() {
@@ -32,27 +32,36 @@ function App() {
   }, []);
 
   const mobileDashboard =
-    <motion.div className='mobile-dashboard' data-isopen={isMenuOpen}
-      onClick={(e) => {
-        if (!e.target.closest('.mobile-dashboard__dashboard')) setIsMenuOpen(false);
-      }}
-    >
-      <motion.div className="mobile-dashboard__dashboard"
-        variants={{
-          open: { x: 0, },
-          closed: { x: '-100%' },
-        }}
-        animate={isMenuOpen ? 'open' : 'closed'}
-        transition={{ type: 'tween' }}
-      >
-        <Dashboard />
-      </motion.div>
+    <AnimatePresence>
+      {isMenuOpen && (
+        <motion.div className='mobile-dashboard'
+          initial={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
+          animate={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+          exit={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
 
-    </motion.div>
+          onClick={(e) => {
+            if (!e.target.closest('.mobile-dashboard__dashboard')) setIsMenuOpen(false);
+          }}
+        >
+          <motion.div className="mobile-dashboard__dashboard"
+            initial={{ x: '-100%' }}
+            animate={{ x: 0, }}
+            exit={{ x: '-100%' }}
+
+            transition={{ type: 'tween' }}
+
+          >
+            <Dashboard />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
 
   return (
     <div className='wrapper'>
-      {isMobile ? mobileDashboard : <Dashboard />}
+      <div className="wrapper__dashboard">
+        {!isMobile ? <Dashboard /> : mobileDashboard}
+      </div>
 
       <main className="wrapper__content">
         <header className='header'>

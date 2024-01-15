@@ -8,6 +8,12 @@
 
   display: flex;
 
+  @media (min-width: 1025px) {
+    &__dashboard {
+      flex: 0 0 306px;
+    }
+  }
+
   &__content {
     width: 100%;
     max-width: 100%;
@@ -44,14 +50,5 @@
     &__dashboard {
       flex: 1 1 auto;
     }
-  }
-
-  &[data-isopen=true] {
-    background-color: rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-  }
-
-  &[data-isopen=false] {
-    background-color: rgba(0, 0, 0, 0);
   }
 }
