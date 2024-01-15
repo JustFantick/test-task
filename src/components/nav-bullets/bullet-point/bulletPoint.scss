@@ -1,0 +1,28 @@
+@import '../../../global.scss';
+
+.bullet {
+	cursor: pointer;
+
+	display: inline-block;
+	padding: 6px 9px;
+	border-radius: 4px;
+
+	border: 1px solid;
+
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 100%;
+	letter-spacing: -0.12px;
+
+	&[data-isactive=true] {
+		border-color: $colorNavItemHighlighted;
+		color: white;
+		background: $colorNavItemHighlighted;
+	}
+
+	&[data-isactive=false] {
+		border-color: #EEE;
+		color: #404B52;
+		background: #F5F5F5;
+	}
+}

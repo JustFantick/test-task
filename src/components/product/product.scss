@@ -1,0 +1,152 @@
+@import '../../global.scss';
+
+.product {
+	border-radius: 30px;
+	background-color: #fff;
+
+	padding: adaptValue(30, 15) adaptValue(44, 10) adaptValue(40, 20) adaptValue(38, 10);
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: adaptValue(30, 20);
+	}
+}
+
+.product-head {
+	//max-width: 300px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	@media (max-width: 500px) {
+		flex-direction: column;
+		align-items: start;
+		gap: 15px;
+	}
+
+	&__title {
+		* {
+			text-transform: capitalize;
+		}
+
+		h4 {
+			font-size: 22px;
+			font-weight: 600;
+			line-height: normal;
+			letter-spacing: -0.22px;
+
+			margin-bottom: 7px;
+		}
+
+		h5 {
+			color: #16C098;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: normal;
+			letter-spacing: -0.14px;
+		}
+	}
+
+	&__search-field {
+		label {
+			display: flex;
+			gap: 8px;
+			padding: 7px 8px;
+			border-radius: 10px;
+			overflow: hidden;
+			background-color: $colorBgPrimary;
+
+
+			.icon-search {
+				font-size: 24px;
+				color: #7E7E7E;
+			}
+
+			input {
+				color: #7E7E7E;
+				margin: 0;
+				padding: 0;
+				background-color: inherit;
+				border: none;
+				outline: none;
+
+				font-size: 12px;
+				font-weight: 400;
+				line-height: normal;
+				letter-spacing: -0.12px;
+
+				&::placeholder {
+					color: $colorTextSecondary;
+				}
+			}
+		}
+	}
+}
+
+.product-table {
+	max-width: 100%;
+	overflow-x: scroll;
+
+	@media (max-width: 768px) {
+		max-width: 85vw;
+	}
+
+	table {
+		width: 100%;
+		text-align: left;
+
+		td {
+			color: #292D32;
+			font-size: 14px;
+			font-weight: 500;
+			line-height: normal;
+			letter-spacing: -0.14px;
+		}
+
+		thead tr th {
+			padding: adaptValue(14, 7) 5px;
+
+			color: $colorTextSecondary;
+			font-size: 14px;
+			font-weight: 500;
+			line-height: normal;
+			letter-spacing: -0.14px;
+
+			border-bottom: 1px solid #eee;
+
+			&.no-wrap {
+				white-space: nowrap;
+			}
+		}
+
+		tbody tr td {
+			padding: adaptValue(24, 10) 5px;
+			border-bottom: 1px solid #eee;
+
+			&.no-wrap {
+				white-space: nowrap;
+			}
+		}
+	}
+}
+
+.product-footer {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+
+	@media (max-width: 610px) {
+		flex-direction: column;
+		align-items: center;
+
+	}
+
+	&__text {
+		color: $colorTextSecondary;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: normal;
+		letter-spacing: -0.14px;
+	}
+}
