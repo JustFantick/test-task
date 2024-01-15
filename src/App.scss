@@ -3,9 +3,55 @@
 .wrapper {
   min-height: 100vh;
   min-height: 100dvh;
+  background-color: $colorBgPrimary;
+  overflow: hidden;
 
   display: flex;
-  justify-content: center;
+
+  &__content {
+    width: 100%;
+    max-width: 100%;
+    padding: adaptValue(41, 37) adaptValue(95, 10) adaptValue(41, 25) adaptValue(71, 10);
+  }
+}
+
+.header {
+  display: flex;
   align-items: center;
-  background-color: $colorBgPrimary;
+  justify-content: space-between;
+  margin-bottom: adaptValue(51, 20);
+
+  h2 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+.mobile-dashboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  transition: all 0.3s ease-in-out;
+
+  display: flex;
+
+  @media (max-width: 350px) {
+    &__dashboard {
+      flex: 1 1 auto;
+    }
+  }
+
+  &[data-isopen=true] {
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+
+  &[data-isopen=false] {
+    background-color: rgba(0, 0, 0, 0);
+  }
 }
