@@ -1,4 +1,8 @@
 .bullet-points {
 	display: flex;
 	gap: 12px;
+
+	@media (max-width: 350px) {
+		gap: 8px;
+	}
 }
